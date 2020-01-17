@@ -14,4 +14,11 @@ context '#destroy' do
       expect(Product.all).to include(product)
     end
   end
+    context '#update' do
+      it 'should update product' do
+        product = Product.create(name: "pie", cost: "33.33", country_of_origin: "usa")
+        product.update(name: "cheese", cost: "33.33", country_of_origin: "usa")
+        expect(product.name).to eq("cheese")
+  end
+end
 end
