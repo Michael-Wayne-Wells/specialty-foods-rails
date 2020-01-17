@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 describe Review do
+  context "validations" do
+    it { should validate_presence_of :author }
+  end
+
   it {should belong_to(:product)}
   context '#destroy' do
     it 'should delete review' do
