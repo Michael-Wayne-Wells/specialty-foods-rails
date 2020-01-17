@@ -23,7 +23,11 @@ end
     it 'should update product' do
       product = Product.create(name: "pie", cost: "33.33", country_of_origin: "usa")
       product.update(name: "cheese", cost: "33.33", country_of_origin: "usa")
-      expect(product.name).to eq("cheese")
+      expect(product.name).to eq("Cheese")
     end
   end
+  it("titleizes the name of an product") do
+   product = Product.create(name: "pie", cost: "33.33", country_of_origin: "usa")
+   expect(product.name).to eq("Pie")
+ end
 end
