@@ -7,7 +7,7 @@ class Product < ApplicationRecord
     .order("reviews_count DESC")
     .limit(1)
     )}
-  scope :usa, -> { where(country_of_origin: "Usa")}
+  scope :usa, -> { where("country_of_origin ilike 'Usa'").or(Product.where("country_of_origin ilike '%united states%'"))}
   scope :recent_products, -> { order(created_at: :desc).limit(3)}
   before_save(:titleize_product, :titleize_country)
   has_many :reviews, dependent: :destroy
