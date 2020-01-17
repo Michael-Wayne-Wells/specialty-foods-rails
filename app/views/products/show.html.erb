@@ -1,0 +1,42 @@
+
+
+<div class="row">
+
+  <div class="col-md-6 right">
+    <h1 class="title"><%= @product.name %></h1>
+    <p><%= link_to "Edit", edit_product_path(@product) %>|<%= link_to "Delete product", product_path(@product),
+      :data => {:confirm => "Are you sure?",
+      :method => "delete"} %>|<%= link_to "Return to products", products_path %></p>
+  <h3>Cost: $<%= @product.cost %></h3>
+  <h3>Country or origin: <%= @product.country_of_origin %></h3>
+</div>
+
+<div class="col-md-6">
+
+<h2>Product reviews:</h2>
+<% if @product.reviews.any? %>
+<% @product.reviews.each do |review| %>
+<div class="card-header">
+
+  <h4> By: <%= review.author %> on <%=review.created_at %></h4>
+  <h4><%= review.rating %> STARS</h4>
+</div>
+<div class="card-body">
+  <ul>
+    <li>
+      <%= review.content_body %>
+    </li>
+  </ul>
+
+</div>
+<% end %>
+<% else %>
+<p>No reviews are listed for this product.</p>
+<% end %>
+
+
+<p class="btn btn-info"><%= link_to "Add a review", new_product_review_path(@product) %></p>
+
+</div>
+</div>
+<hr>
