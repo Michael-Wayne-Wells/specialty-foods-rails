@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>SpecialFoods</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>RecipeBook</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
+<body>
+  <div class="jumbotron"><div class="opaque">
+    <h1>Mario's Specialty Foods</h1>
+    <p>|<%= link_to "Products", products_path %>|</p>
+  </div>
+  <div class="container">
+    <%= flash[:alert] %>
+    <%= flash[:notice] %>
     <%= yield %>
-  </body>
+  </div>
+</body>
 </html>
