@@ -1,8 +1,10 @@
 class ProductsController < ApplicationController
 
   def index
+    @top_product = Product.most_reviewed.first
     @product_search = Product.where("name ilike '%#{params[:search]}%'").uniq
     @products = Product.all
+    @page_products = Kaminari.paginate_array(@products).page(params[:page]).per(10)
     render :index
   end
 
@@ -15,7 +17,7 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
     if @product.save
       flash[:notice] = "Product successfully added!"
-      redirect_to product_path
+      redirect_to products_path
     else
       render :new
     end
@@ -34,7 +36,7 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     if @product.update(product_params)
-      redirect_to product_path
+      redirect_to products_path
     else
       render :edit
     end
