@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
 
   def index
+    @product_search = Product.where("name ilike '%#{params[:search]}%'").uniq
     @products = Product.all
     render :index
   end
