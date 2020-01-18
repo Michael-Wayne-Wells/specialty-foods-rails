@@ -16,12 +16,11 @@
 <h2>Product reviews:</h2>
 <% if @product.reviews.any? %>
 <% @product.reviews.each do |review| %>
-<div class="card-header">
+<div class="card">
 
   <h4> By: <%= review.author %> on <%=review.created_at %></h4>
   <h4><%= review.rating %> STARS</h4>
-</div>
-<div class="card-body">
+<hr>
   <ul>
     <li>
       <%= review.content_body %>
