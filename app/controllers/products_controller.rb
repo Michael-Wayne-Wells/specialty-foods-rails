@@ -19,6 +19,7 @@ class ProductsController < ApplicationController
       flash[:notice] = "Product successfully added!"
       redirect_to products_path
     else
+      flash[:alert] = "Error adding product"
       render :new
     end
   end
@@ -40,15 +41,20 @@ class ProductsController < ApplicationController
       flash[:notice] = "Product successfully updated!"
       redirect_to products_path
     else
+      flash[:alert] = "Error updating product"
       render :edit
     end
   end
 
   def destroy
     @product = Product.find(params[:id])
-    @product.destroy
-    flash[:notice] = "Product successfully deleted!"
-    redirect_to products_path
+    if @product.destroy
+      flash[:notice] = "Product successfully deleted!"
+      redirect_to products_path
+    else
+      flash[:alert] = "Error deleting product"
+      redirect_to products_path
+    end
   end
 
 

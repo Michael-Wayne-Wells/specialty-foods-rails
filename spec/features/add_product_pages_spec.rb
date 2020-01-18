@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 describe "the add,delete, and edit a product process" do
   it "adds a new product" do
     visit products_path
@@ -9,14 +8,13 @@ describe "the add,delete, and edit a product process" do
     fill_in 'product[country_of_origin]', :with => "usa"
     click_on 'Submit'
     expect(page).to have_content 'Product successfully added!'
+    expect(page).to have_content 'Teeth'
   end
-
   it "gives an error when no name is entered" do
     visit new_product_path
     click_on 'Submit'
     expect(page).to have_content "Name can't be blank"
   end
-
   it "updates product" do
     visit products_path
     click_link 'New Product'
@@ -53,7 +51,7 @@ describe "the add,delete, and edit a product process" do
     fill_in 'review[author]', :with => 'Jim'
     fill_in 'review[content_body]', :with => 'wow'
     fill_in 'review[rating]', :with => '3'
-    click_on 'Create Review'
+    click_on 'Submit'
     expect(page).to have_content "Jim"
   end
 
