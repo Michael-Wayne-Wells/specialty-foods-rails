@@ -4,7 +4,6 @@ ul {
 
 .current {
   font-size: 18px;
-
 }
 
 .card {
@@ -20,6 +19,7 @@ p, a {
 div.opaque {
   background: rgba(00, 00, 00, 0.4);
 }
+
 .butt {
   position:relative;
   width: 50%;
@@ -44,12 +44,16 @@ div.opaque {
   text-decoration: none;
 }
 .butt:hover {
+  box-shadow: 5px 5px 5px grey;
+  transform: translate(-2px, -2px);
+}
+.butt:active {
+  box-shadow: 0px 0px 0px grey;
   transform: translate(5px, 5px);
 }
 
 .jumbotron {
   color: white;
-
   text-align: center;
   font-family: impact;
   background-image: url(food.jpg);
@@ -60,7 +64,7 @@ div.opaque {
 }
 .navbar {
   text-align: right;
-  
+
   font-family: impact;
   text-shadow: 2px 2px #b30000;
   a {
@@ -74,14 +78,14 @@ div.opaque {
     transition: font-size 1s;
   }
 }
-  .top {
-    text-align: center;
-    h1 {
-      font-size: 50px;
-    }
-
+.top {
+  text-align: center;
+  h1 {
+    font-size: 50px;
   }
-  .container {
-    padding-left: 100px;
 
-  }
+}
+.container {
+  padding-left: 100px;
+
+}
