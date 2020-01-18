@@ -23,9 +23,9 @@ div.opaque {
 .butt {
   position:relative;
   width: 50%;
-margin-top: 20px;
-margin-left: 25%;
-margin-right: 25%;
+  margin-top: 20px;
+  margin-left: 25%;
+  margin-right: 25%;
   padding: 10px 15px 10px 15px;
   border-radius: 10px;
   width: 30%;
@@ -56,6 +56,13 @@ margin-right: 25%;
   background-size: cover;
   text-shadow: 2px 2px #b30000;
   overflow: hidden;
+
+}
+.navbar {
+  text-align: right;
+  
+  font-family: impact;
+  text-shadow: 2px 2px #b30000;
   a {
     font-size: 30px;
     color: orange;
@@ -67,15 +74,14 @@ margin-right: 25%;
     transition: font-size 1s;
   }
 }
+  .top {
+    text-align: center;
+    h1 {
+      font-size: 50px;
+    }
 
-.top {
-  text-align: center;
-  h1 {
-    font-size: 50px;
   }
+  .container {
+    padding-left: 100px;
 
-}
-.container {
-padding-left: 100px;
-
-}
+  }

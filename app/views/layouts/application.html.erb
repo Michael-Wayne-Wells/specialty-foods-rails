@@ -13,7 +13,6 @@
   <div class="jumbotron">
     <div class="opaque">
     <h1>Mario's Specialty Foods</h1>
-    <p>|<%= link_to "Products", products_path %>|<%= link_to "Home", "/" %>|</p>
   </div>
   </div>
   <div class="container">
@@ -21,5 +20,14 @@
     <%= flash[:notice] %>
     <%= yield %>
   </div>
+  <br><br><br><br><br>
+  <nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container footer">
+    <h2>
+    <%= link_to "Products", products_path %> | <%= link_to "Add a product", new_product_path %> | <%= link_to "Home", "/" %>
+    </h2>
+  </div>
+</nav>
+
 </body>
 </html>

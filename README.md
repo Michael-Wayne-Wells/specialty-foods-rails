@@ -1,5 +1,3 @@
-# README
-
 # _Specialty Products_
 
 #### _Specialty Products and Reviews_
@@ -31,14 +29,19 @@ in terminal run:
 navigate to project folder and install gem bundles
 
 >$ cd volunteer_tracker
+
 >$ gem install bundler
+
 >$ bundle install
 
 start postgres(if not already), duplicate database, and seed:
 
 >$ postgres
+
 >$ rake db:create
+
 >$ rake db:migrate
+
 >$ rake db:seed
 
 
