@@ -32,7 +32,7 @@ gem 'faker'
 gem 'devise'
 gem 'httparty', '~> 0.13.7'
 gem 'jquery-rails'
-
+gem 'kaminari'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
