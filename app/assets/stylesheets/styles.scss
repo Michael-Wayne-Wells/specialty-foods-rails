@@ -65,22 +65,7 @@ div.opaque {
   overflow: hidden;
 margin-bottom: 0;
 }
-.navbar_foot {
-  text-align: right;
 
-  font-family: impact;
-  text-shadow: 2px 2px #b30000;
-  a {
-    font-size: 30px;
-    color: orange;
-  }
-  a:hover {
-    color: #b30000;
-    text-shadow: 2px 2px orange;
-    font-size: 30px;
-    transition: font-size 1s;
-  }
-}
 .navbar {
   margin-top: 0;
 }
@@ -90,6 +75,12 @@ margin-bottom: 0;
     font-size: 50px;
   }
 
+
+}
+.navbar-sticky-bottom {
+  position: sticky;
+  bottom: 0;
+  right: 0;
 }
 .container {
   padding-left: 100px;
