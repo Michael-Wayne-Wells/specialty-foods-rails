@@ -34,6 +34,7 @@ gem 'devise'
 gem 'httparty', '~> 0.13.7'
 gem 'jquery-rails'
 gem 'kaminari'
+gem 'activeadmin'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
