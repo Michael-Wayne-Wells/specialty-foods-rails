@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   resources :products do
     resources :reviews
   end
-  get "/:page" => "static#show"
+  get "/admin_page" => "admin#users"
+  get "/edit_user/:id" => "admin#edit_user"
 end
