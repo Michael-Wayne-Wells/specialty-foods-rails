@@ -54,7 +54,7 @@ before_action :set_review, only: [:show, :edit, :update, :destroy]
     params.require(:review).permit(:author, :content_body, :rating)
   end
   def set_product
-    @product = Product.find(params[:id])
+    @product = Product.find(params[:product_id])
   end
   def set_review
     @review = Review.find(params[:id])
