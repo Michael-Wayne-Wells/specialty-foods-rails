@@ -8,7 +8,7 @@ class Product < ApplicationRecord
     .limit(1)
   )}
 
-  scope :usa, -> { where("country_of_origin ilike       'Usa'").or(Product.where("country_of_origin ilike '%united states%'"))}
+  scope :usa, -> { where("country_of_origin ilike 'Usa'").or(Product.where("country_of_origin ilike '%united states%'"))}
 
   scope :recent_products, -> { order(created_at: :desc).limit(3)}
 
