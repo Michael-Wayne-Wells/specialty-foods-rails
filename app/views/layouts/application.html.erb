@@ -11,47 +11,54 @@
 
 <body>
   <div class="jumbotron">
-    <%= user_signed_in? %>
-
     <div class="opaque">
-    <h1>Mario's Specialty Foods</h1>
+      <h1>Mario's Specialty Foods</h1>
+    </div>
   </div>
-  </div>
-  <div class="container">
-    <ul class="nav pull-right">
-  <li><%= link_to "Home",         root_path %></li>
-  <li><%= link_to "Admin",        new_admin_session_path %></li>
-  <% if user_signed_in? %>
-    <li id="fat-menu" class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-        Account <b class="caret"></b>
-      </a>
-      <ul class="dropdown-menu">
-        <li><%= link_to "Profile", edit_user_registration_path %></li>
-        <li><%= link_to "Settings", '#' %></li>
-        <li class="divider"></li>
-        <li>
-          <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
-        </li>
-      </ul>
-    </li>
-    <li> <%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
-  <% else %>
-    <li><%= link_to "Sign in", new_user_session_path %></li>
-  <% end %>
-</ul>
-    <%= flash[:alert] %>
-    <%= flash[:notice] %>
-    <%= yield %>
-  </div>
-  <br><br><br><br><br>
-  <nav class="navbar navbar-default navbar-fixed-bottom">
-  <div class="container footer">
-    <h2>
-    <%= link_to "Products", products_path %> | <%= link_to "Add a product", new_product_path %> | <%= link_to "Home", "/" %>
-    </h2>
-  </div>
-</nav>
 
-</body>
-</html>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <%= link_to "MARIO'S", root_path, :class => "navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <%= link_to "Products", products_path, :class => "nav-link" %>
+        </li>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <%= link_to "Add a product", new_product_path, :class => "nav-link" %>
+            </li>
+            <% if user_signed_in? %>
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <%= link_to "Profile", edit_user_registration_path, :class => "nav-link" %>
+              </li>
+              <%= link_to "Logout", destroy_user_session_path, :method => :delete, :class => "nav-link" %>
+                <% else %>
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <%= link_to "Sign in", new_user_session_path, :class => "nav-link" %>
+                  </li>
+                  <% end %>
+                </ul>
+              </nav>
+              <div class="container">
+                <%= flash[:alert] %>
+                <%= flash[:notice] %>
+                <%= yield %>
+              </div>
+              <br><br><br><br><br>
+              <nav class="navbar navbar_foot navbar-default navbar-fixed-bottom">
+                <div class="container footer">
+                  <h2>
+                    <%= link_to "Admin",        new_admin_session_path %>
+                  </h2>
+                </div>
+              </nav>
+
+            </body>
+            </html>

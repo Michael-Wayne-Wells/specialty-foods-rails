@@ -58,11 +58,14 @@ div.opaque {
   font-family: impact;
   background-image: url(food.jpg);
   background-size: cover;
+  padding: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
   text-shadow: 2px 2px #b30000;
   overflow: hidden;
-
+margin-bottom: 0;
 }
-.navbar {
+.navbar_foot {
   text-align: right;
 
   font-family: impact;
@@ -77,6 +80,9 @@ div.opaque {
     font-size: 30px;
     transition: font-size 1s;
   }
+}
+.navbar {
+  margin-top: 0;
 }
 .top {
   text-align: center;
