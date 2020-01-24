@@ -1,9 +1,11 @@
 <% if @users.any? %>
-<ul>
+<h2>There are <%= @users.count %> active users.</h2>
   <% @users.each do |user| %>
-  <li><%=  user.username, "/edit_user/#{user.id}" %></li>
-  <% end %>
+  <ul>
+  <li><%= user.username %></li>
+  <li><%= user.email %></li>
 </ul>
+  <% end %>
 <% else %>
 <p>There are no users yet.</p>
 <% end %>
