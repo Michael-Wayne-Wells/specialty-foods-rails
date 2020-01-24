@@ -3,7 +3,7 @@ Review.destroy_all
 User.destroy_all
 Admin.destroy_all
 
-Admin.create(email: "placeholder@email.com", username: "root", password: "ChangeMe")
+
 
 50.times do |index|
   user = User.create!(email: Faker::Internet.email, username: Faker::Internet.username, password: Faker::Internet.password(min_length: 8))
@@ -18,3 +18,4 @@ Admin.create(email: "placeholder@email.com", username: "root", password: "Change
   p "Created #{Product.count} products"
   p "Created #{Review.count} reviews"
     p "Created #{User.count} reviews"
+Admin.create!(username: 'admin', email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
