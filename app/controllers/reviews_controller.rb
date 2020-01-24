@@ -1,6 +1,8 @@
 class ReviewsController < ApplicationController
 before_action :authenticate_admin!, except: [:create, :show, :new]
 before_action :authenticate_user!, only: [:create, :new]
+before_action :set_product, except: [:update, :destroy]
+before_action :set_review, only: [:show, :edit, :update, :destroy]
 
   def new
     @product = Product.find(params[:product_id])
@@ -51,5 +53,10 @@ before_action :authenticate_user!, only: [:create, :new]
   def review_params
     params.require(:review).permit(:author, :content_body, :rating)
   end
-  
+  def set_product
+    @product = Product.find(params[:id])
+  end
+  def set_review
+    @review = Review.find(params[:id])
+  end
 end
