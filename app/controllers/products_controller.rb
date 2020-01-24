@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-
+before_action :authenticate_admin!, except: [:index, :show]
+before_action :set_product, only: [:show, :edit, :update, :destroy]
   def index
     @top_product = Product.most_reviewed.first
     @product_search = Product.where("name ilike '%#{params[:search]}%'").uniq
@@ -25,18 +26,14 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
-
     render :edit
   end
 
   def show
-    @product = Product.find(params[:id])
     render :show
   end
 
   def update
-    @product = Product.find(params[:id])
     if @product.update(product_params)
       flash[:notice] = "Product successfully updated!"
       redirect_to products_path
@@ -47,7 +44,6 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product = Product.find(params[:id])
     if @product.destroy
       flash[:notice] = "Product successfully deleted!"
       redirect_to products_path
@@ -61,5 +57,8 @@ class ProductsController < ApplicationController
   private
   def product_params
     params.require(:product).permit(:name, :cost, :country_of_origin)
+  end
+  def set_product
+    @product = Product.find(params[:id])
   end
 end
