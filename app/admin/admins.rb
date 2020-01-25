@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 ActiveAdmin.register Admin do
+  action_item :view_site do
+    link_to 'View Site', '/'
+  end
   permit_params :email, :username, :password, :password_confirmation
 
   index do

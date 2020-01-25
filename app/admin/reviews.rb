@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 ActiveAdmin.register Review do
+  action_item :view_site do
+    link_to 'View Site', '/'
+  end
   permit_params :author, :content_body, :rating
 
   index do

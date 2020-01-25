@@ -6,6 +6,8 @@
 
 ## Description
 This application provides a resources for users to:
+* register and login with username or email.
+* Passwords are stored securely via the use of Devise.
 * Add, edit, view, and delete products
 * Add a review and rating for a product
 * Search for products by name
@@ -18,13 +20,16 @@ This application provides a resources for users to:
 * Receive flash messages when new entries are created.
 
 Admin:
+* provides and admin console for ease of use and making changes to database.
+* Creates a default admin account
 * log in and out of main website and admin Console
 * full CRUD on users, admin, products, and reviews via the admin Console
 * full CRUD on products via the website
+* Admin can interact with website with same functunality as a user with added privileges.
 
 
 ## Setup/Installation Requirements
-
+View on Heroku here: https://arcane-ravine-40808.herokuapp.com/
 
 clone and open the file locally
 in terminal run:
@@ -81,6 +86,8 @@ _If you have any issues with the program or want to reach out, email [mwells1286
 _This program utilized:_
 * _RUBY 2.6.5_
 * _Rails 5.2.4_
+* _Heroku_
+* _Rubocop_
 * _Devise_
 * _ActiveAdmin_
 * _faker_

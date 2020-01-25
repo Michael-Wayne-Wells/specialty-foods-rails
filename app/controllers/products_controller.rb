@@ -48,11 +48,10 @@ class ProductsController < ApplicationController
   def destroy
     if @product.destroy
       flash[:notice] = 'Product successfully deleted!'
-      redirect_to products_path
     else
       flash[:alert] = 'Error deleting product'
-      redirect_to products_path
     end
+    redirect_to products_path
   end
 
   private
