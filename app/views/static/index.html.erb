@@ -1,26 +1,26 @@
-
 <h1>Welcome!</h1>
 
-<h4>You have reached the home of Mario's Specialty Food Stuff, where every ingredient is hand selected by some person of importance. Each product is local to somewhere and is enviromentally friendly somehow. You can't beat our price on products that are curated by a person more important than you and that helps some good cause somehow.</h4>
+<h4>You have reached the home of Mario's Specialty Food Stuff, where every ingredient is hand selected by some person of importance. Each product is local to somewhere and is enviromentally friendly somehow. You can't beat our price on products that
+  are curated by a person more important than you and that helps some good cause somehow.</h4>
 <div class="row">
 
   <div class="col-md-6">
     <h2>Most Reviewed Product:</h2>
     <% if @top_product %>
-    <h4><%= link_to @top_product.name, product_path(@top_product) %></h4>
+      <h4><%= link_to @top_product.name, product_path(@top_product) %></h4>
     <% end %>
   </div>
-    <div class="col-md-6">
+  <div class="col-md-6">
 
     <h2>Recent Products:</h2>
     <% if @products.any? %>
-    <ul>
-      <% @products.recent_products.each do |product| %>
-      <li><%= link_to product.name, product_path(product) %></li>
-      <% end %>
-    </ul>
+      <ul>
+        <% @products.recent_products.each do |product| %>
+          <li><%= link_to product.name, product_path(product) %></li>
+        <% end %>
+      </ul>
     <% else %>
-    <p>There are no products yet.</p>
+      <p>There are no products yet.</p>
     <% end %>
   </div>
 </div>

@@ -1,14 +1,11 @@
-
-
 <div class="row">
 
   <div class="col-md-6 right">
     <h1 class="title"><%= @product.name %></h1>
-    <p><%= link_to "Edit", edit_product_path(@product) %>|<%= link_to "Delete", product_path(@product),
-      :data => {:confirm => "Are you sure?",
-      :method => "delete"} %>
+    <p><%= link_to "Edit", edit_product_path(@product) %>|<%= link_to "Delete", product_path(@product), :data => {:confirm => "Are you sure?", :method => "delete"} %>
       <h3>Cost: $<%= @product.cost %></h3>
-      <h3>Country or origin: <%= @product.country_of_origin %></h3>
+      <h3>Country or origin:
+        <%= @product.country_of_origin %></h3>
       <p class="btn btn-info"><%= link_to "Add a review", new_product_review_path(@product) %></p>
 
     </div>
@@ -17,25 +14,28 @@
 
       <h2>Product reviews:</h2>
       <% if @product.reviews.any? %>
-      <% @product.reviews.each do |review| %>
-      <div class="card">
+        <% @product.reviews.each do |review| %>
+          <div class="card">
 
-        <h4> By: <%= review.author %> on <%=review.created_at %></h4>
-        <h4><%= review.rating %> STARS</h4>
-        <hr>
-        <ul>
-          <li>
-            <%= review.content_body %>
-          </li>
-        </ul>
+            <h4>
+              By:
+              <%= review.author %>
+              on
+              <%=review.created_at %></h4>
+            <h4><%= review.rating %>
+              STARS</h4>
+            <hr>
+            <ul>
+              <li>
+                <%= review.content_body %>
+              </li>
+            </ul>
 
-      </div>
-      <% end %>
+          </div>
+        <% end %>
       <% else %>
-      <p>No reviews are listed for this product.</p>
+        <p>No reviews are listed for this product.</p>
       <% end %>
-
-
 
     </div>
 
