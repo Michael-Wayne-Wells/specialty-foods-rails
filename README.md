@@ -13,9 +13,14 @@ This application provides a resources for users to:
 * View US products
 * View most rated product
 * Validate that all forms were filled out correctly
-* Titleize products
+* Titleize products & tilteize country_of_origin
 * Seed a database
 * Receive flash messages when new entries are created.
+
+Admin:
+* log in and out of main website and admin Console
+* full CRUD on users, admin, products, and reviews via the admin Console
+* full CRUD on products via the website
 
 
 ## Setup/Installation Requirements
@@ -24,11 +29,11 @@ This application provides a resources for users to:
 clone and open the file locally
 in terminal run:
 
->$ git clone https://github.com/Michael-Wayne-Wells/ruby_builder.git
+>$ git clone https://github.com/Michael-Wayne-Wells/specialty-food-rails.git
 
 navigate to project folder and install gem bundles
 
->$ cd volunteer_tracker
+>$ cd specialty-foods-rails
 
 >$ gem install bundler
 
@@ -44,12 +49,24 @@ start postgres(if not already), duplicate database, and seed:
 
 >$ rake db:seed
 
+Seeding will create a default admin user.
+credentials:
+username: admin
+password: password
+
+You will use these credentials to log into the admin areas of the website as well as the admin terminal. You should Update these credentials immediatly in the Admin Terminal. http://localhost:3000/admin
 
 run program script in terminal
 
 >$ rails -s
 
-Open browser and go to https://localhost:3000
+Open browser and go to https://localhost:3000/admin
+
+login with:
+username: admin
+password: password
+
+Click "admin" in the upper right corner of the page and then "edit" to change username, email, and password.
 
 ## Known Bugs
 
@@ -64,6 +81,8 @@ _If you have any issues with the program or want to reach out, email [mwells1286
 _This program utilized:_
 * _RUBY 2.6.5_
 * _Rails 5.2.4_
+* _Devise_
+* _ActiveAdmin_
 * _faker_
 * _rspec_
 * _capybara_
