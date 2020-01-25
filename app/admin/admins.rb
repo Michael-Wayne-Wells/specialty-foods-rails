@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ActiveAdmin.register Admin do
   permit_params :email, :username, :password, :password_confirmation
 
@@ -26,5 +28,4 @@ ActiveAdmin.register Admin do
     end
     f.actions
   end
-
 end

@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class ReviewsController < ApplicationController
-before_action :authenticate_admin!, except: [:create, :show, :new]
-before_action :authenticate_user!, only: [:create, :new]
-before_action :set_product, except: [:update, :destroy]
-before_action :set_review, only: [:show, :edit, :update, :destroy]
+ before_action :authorize_admin_user, only: %i[new create]
+ before_action :authenticate_admin!, only: %i[edit destroy]
+  before_action :set_product, except: %i[update destroy]
+  before_action :set_review, only: %i[show edit update destroy]
 
   def new
     @product = Product.find(params[:product_id])
@@ -14,10 +16,10 @@ before_action :set_review, only: [:show, :edit, :update, :destroy]
     @product = Product.find(params[:product_id])
     @review = @product.reviews.new(review_params)
     if @review.save
-      flash[:notice] = "Review successfully added!"
+      flash[:notice] = 'Review successfully added!'
       redirect_to product_path(@product)
     else
-      flash[:alert] = "Error adding review"
+      flash[:alert] = 'Error adding review'
       render :new
     end
   end
@@ -50,12 +52,15 @@ before_action :set_review, only: [:show, :edit, :update, :destroy]
   end
 
   private
+
   def review_params
     params.require(:review).permit(:author, :content_body, :rating)
   end
+
   def set_product
     @product = Product.find(params[:product_id])
   end
+
   def set_review
     @review = Review.find(params[:id])
   end
