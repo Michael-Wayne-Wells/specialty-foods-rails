@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   devise_for :admins, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -6,6 +8,6 @@ Rails.application.routes.draw do
   resources :products do
     resources :reviews
   end
-  get "/admin_page" => "admin#users"
-  get "/edit_user/:id" => "admin#edit_user"
+  get '/admin_page' => 'admin#users'
+  get '/edit_user/:id' => 'admin#edit_user'
 end

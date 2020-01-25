@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateFoodsAndReviews < ActiveRecord::Migration[5.2]
   def change
     create_table :products do |t|
@@ -5,14 +7,14 @@ class CreateFoodsAndReviews < ActiveRecord::Migration[5.2]
       t.column(:cost, :decimal)
       t.column(:country_of_origin, :string)
 
-      t.timestamps()
+      t.timestamps
     end
     create_table :reviews do |t|
       t.column(:author, :string)
       t.column(:content_body, :string)
       t.column(:rating, :integer)
 
-      t.timestamps()
+      t.timestamps
     end
   end
 end

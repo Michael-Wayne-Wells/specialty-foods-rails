@@ -4,10 +4,10 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def authorize_admin_user
-      if !current_user && !current_admin
-        flash[:alert] = "You aren't authorized to visit that page."
-        redirect_back(fallback_location: root_path)
-      end
+    if !current_user && !current_admin
+      flash[:alert] = "You aren't authorized to visit that page."
+      redirect_back(fallback_location: root_path)
+    end
   end
 
   protected

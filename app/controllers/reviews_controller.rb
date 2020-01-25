@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class ReviewsController < ApplicationController
- before_action :authorize_admin_user, only: %i[new create]
- before_action :authenticate_admin!, only: %i[edit destroy]
+  before_action :authorize_admin_user, only: %i[new create]
+  before_action :authenticate_admin!, only: %i[edit destroy]
   before_action :set_product, except: %i[update destroy]
   before_action :set_review, only: %i[show edit update destroy]
 
