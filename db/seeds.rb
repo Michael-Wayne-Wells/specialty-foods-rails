@@ -3,6 +3,7 @@ Review.destroy_all
 User.destroy_all
 Admin.destroy_all
 
+Admin.create!(username: 'admin', email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 
 
 50.times do |index|
@@ -18,4 +19,3 @@ Admin.destroy_all
   p "Created #{Product.count} products"
   p "Created #{Review.count} reviews"
     p "Created #{User.count} reviews"
-Admin.create!(username: 'admin', email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
