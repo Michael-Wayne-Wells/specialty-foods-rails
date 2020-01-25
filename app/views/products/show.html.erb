@@ -2,7 +2,9 @@
 
   <div class="col-md-6 right">
     <h1 class="title"><%= @product.name %></h1>
-    <p><%= link_to "Edit", edit_product_path(@product) %>|<%= link_to "Delete", product_path(@product), :data => {:confirm => "Are you sure?", :method => "delete"} %>
+    <% if current_admin %>
+      <p><%= link_to "Edit", edit_product_path(@product) %>|<%= link_to "Delete", product_path(@product), :data => {:confirm => "Are you sure?", :method => "delete"} %>
+      <% end %>
       <h3>Cost: $<%= @product.cost %></h3>
       <h3>Country or origin:
         <%= @product.country_of_origin %></h3>
